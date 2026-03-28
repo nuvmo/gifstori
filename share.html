@@ -103,12 +103,13 @@
 
         // Initialize Firebase
         var config = {
-            apiKey: "AIzaSyALz6zpFWArk0GoxWiz0o74T-9b59qEq3w",
-            authDomain: "corgmo-342e9.firebaseapp.com",
-            databaseURL: "https://corgmo-342e9.firebaseio.com",
-            projectId: "corgmo-342e9",
-            storageBucket: "corgmo-342e9.appspot.com",
-            messagingSenderId: "570647032468"
+            apiKey: "AIzaSyAjFqvmFDYu6jubK_1l7TCZWNOkrBLjXnM",
+            authDomain: "gifstori.firebaseapp.com",
+            databaseURL: "https://gifstori-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "gifstori",
+            storageBucket: "gifstori.firebasestorage.app",
+            messagingSenderId: "788722540512",
+            appId: "1:788722540512:web:62e8777851c5a9d5e81585"
         };
 
         firebase.initializeApp(config);
@@ -118,8 +119,7 @@
 
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.4.0.min.js"
-        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
     <script src="js/searchGiphy.jquery.js"></script>
     <script src="js/gifstori.js"></script>
     <script src="jquery.bxslider/jquery.bxslider.min.js"></script>
@@ -127,20 +127,20 @@
     <script>
         var app = new Vue({
             el: '#page',
-            data: function () {
+            data: function() {
                 return {
                     gifstoriTitle: '',
                     gifstoriObject: ''
                 };
             },
-            mounted() {
+            mounted () {
                 var self = this;
                 var urlParams = new URLSearchParams(window.location.search);
                 var unique_url = urlParams.get('id');
-                firebase.database().ref('gifstories/' + unique_url).once('value').then(function (data) {
+                firebase.database().ref('gifstories/' + unique_url).once('value').then(function(data) {
                     self.gifstoriTitle = data.val().gifstori_title;
                     self.gifstoriObject = JSON.parse(data.val().gifstori_object);
-                    jQuery(document).ready(function ($) {
+                    jQuery(document).ready(function($) {
                         $('.bxslider').bxSlider({
                             adaptiveHeight: true,
                             infiniteLoop: false,
