@@ -96,7 +96,7 @@
         </footer><!-- #colophon -->
     </div><!-- #page -->
 
-    <!-- Firebase -->
+    <!-- Firebase
     <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-database.js"></script>
     <script>
@@ -115,6 +115,30 @@
 
         // Get a reference to the database service
         var database = firebase.database();
+
+    </script> -->
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import {initializeApp} from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+        import {getDatabase} from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAjFqvmFDYu6jubK_1l7TCZWNOkrBLjXnM",
+            authDomain: "gifstori.firebaseapp.com",
+            databaseURL: "https://gifstori-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "gifstori",
+            storageBucket: "gifstori.firebasestorage.app",
+            messagingSenderId: "788722540512",
+            appId: "1:788722540512:web:62e8777851c5a9d5e81585"
+        };
+
+        // Initialize Firebase
+        const fbApp = initializeApp(firebaseConfig);
+
+        // Initialize Realtime Database and get a reference to the service
+        const database = getDatabase(fbApp);
 
     </script>
 
@@ -136,7 +160,7 @@
                 var self = this;
                 var urlParams = new URLSearchParams(window.location.search);
                 var unique_url = urlParams.get('id');
-                firebase.database().ref('gifstories/' + unique_url).once('value').then(function(data) {
+                database.ref('gifstories/' + unique_url).once('value').then(function(data) {
                     self.gifstoriTitle = data.val().gifstori_title;
                     self.gifstoriObject = JSON.parse(data.val().gifstori_object);
                     jQuery(document).ready(function($) {
