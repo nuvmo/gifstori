@@ -119,6 +119,17 @@
     </script> -->
 
     <script type="module">
+
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <script src="js/searchGiphy.jquery.js"></script>
+    <script src="js/gifstori.js"></script>
+    <script src="jquery.bxslider/jquery.bxslider.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script type="module">
+
         // Import the functions you need from the SDKs you need
         import {initializeApp} from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
         import {getDatabase} from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
@@ -138,16 +149,8 @@
         const fbApp = initializeApp(firebaseConfig);
 
         // Initialize Realtime Database and get a reference to the service
-        window.database = getDatabase(fbApp);
+        const database = getDatabase(fbApp);
 
-    </script>
-
-    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
-    <script src="js/searchGiphy.jquery.js"></script>
-    <script src="js/gifstori.js"></script>
-    <script src="jquery.bxslider/jquery.bxslider.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
-    <script>
         var app = new Vue({
             el: '#page',
             data: function() {
